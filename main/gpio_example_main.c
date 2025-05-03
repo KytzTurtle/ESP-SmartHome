@@ -12,6 +12,7 @@
 #include "freertos/task.h"
 #include "freertos/queue.h"
 #include "driver/gpio.h"
+#include "task_handler.h"
 
 /**
  * Brief:
@@ -122,6 +123,8 @@ void app_main(void)
     gpio_isr_handler_add(GPIO_INPUT_IO_0, gpio_isr_handler, (void*) GPIO_INPUT_IO_0);
 
     printf("Minimum free heap size: %"PRIu32" bytes\n", esp_get_minimum_free_heap_size());
+
+    all_task_create();
 
     int cnt = 0;
     while (1) {
