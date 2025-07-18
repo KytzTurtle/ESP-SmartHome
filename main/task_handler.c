@@ -13,6 +13,7 @@
 #include "freertos/queue.h"
 #include "task_handler.h"
 #include "esp_log.h"
+#include "common.h"
 
 static void light_sensor_task(void *arg)
 {
@@ -28,7 +29,6 @@ static void light_control_task(void *arg)
     for (;;)
     {
         printf("light control task");
-        vTaskDelay(1000 / portTICK_PERIOD_MS);
     }
 }
 
